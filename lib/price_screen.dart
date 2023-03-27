@@ -55,6 +55,14 @@ class _PriceScreenState extends State<PriceScreen> {
 
   String bitcoinValueUSD = '?';
 
+  void getData() async {
+    try {
+      double data = await CoinData().getCoinData();
+    } catch (e) {
+      print(e);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'price_screen.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return MaterialApp(
+      theme: ThemeData.dark().copyWith(
+          primaryColor: Colors.lightBlue,
+          scaffoldBackgroundColor: Colors.white),
+      home: PriceScreen(),
+    );
   }
 }

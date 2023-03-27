@@ -38,5 +38,15 @@ class CoinData {
   Future getCoinData() async {
     String requestURL = '$coinAPIURL/BTC/USD?apikey=$apiKey';
     http.Response response = await http.get(Uri.parse(requestURL));
+
+    if (response.statusCode == 200) {
+      var decodeData = jsonDecode(response.body);
+      var lastPrice = decodeData['rate'];
+
+      return lastPrice;
+    } else {
+      print(response.statusCode);
+      throw 'Problem with the get request';
+    }
   }
 }
